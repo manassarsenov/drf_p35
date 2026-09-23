@@ -46,16 +46,4 @@ filter larni qoshish
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
  docker compose exec -it backend_service uv run python3 manage.py collectstatic --noinput

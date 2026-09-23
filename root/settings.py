@@ -150,7 +150,10 @@ REDIS_URL = f"redis://{REDIS_HOST}:{REDIS_PORT}"
 CELERY_BROKER_URL = REDIS_URL
 CELERY_RESULT_BACKEND = 'django-db'
 
-CSRF_TRUSTED_ORIGINS = os.getenv("CSRF_TRUSTED_ORIGINS", "").split(",")
+# CSRF_TRUSTED_ORIGINS = os.getenv("CSRF_TRUSTED_ORIGINS", "").split(",")
+CSRF_TRUSTED_ORIGINS = [
+    origin for origin in os.getenv("CSRF_TRUSTED_ORIGINS", "").split(",") if origin
+]
 
 CACHES = {
     "default": {
